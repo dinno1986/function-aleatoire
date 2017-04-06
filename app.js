@@ -14,7 +14,7 @@ function chaineAleatoire(a) {
 
 }
 
-console.log( chaineAleatoire(30));
+//console.log( chaineAleatoire(30));
 
 
 
@@ -39,8 +39,34 @@ console.log( chaineAleatoire(30));
     }					
 
 
-    	console.log (tableauAleatoire(8,6));
+    	//console.log (tableauAleatoire(8,6));
 
+
+
+
+
+ function afficheTableau(tab){
+ 	$("#vue").html(""); //réinitialise le tableau
+ 	// var haut = tab.length; // définit la hauteur du tableau
+ 	// var larg = tab[].length; // definit la largeur du tableau
+ 	// console.log(haut);
+ 	// console.log(larg);
+
+ 	for (var i=0; i<tab.length; i++){  
+ 		var ligneencours = $("<tr></tr>"); //création variable pour intégrer des lignes
+ 		$("#vue").append(ligneencours)     //dans tbody je rajoute les lignes
+ 		for (var j=0; j<tab[i].length; j++){
+ 			var colonneencours = $("<td></td>");  // création variable pour intégrer des colonnes
+ 			colonneencours.append(tab[i][j]);     // dans colonne je rajoute la string contenu dans tab [i] [j] c'est la position d'un élémént dans un tableau
+ 			ligneencours.append(colonneencours);  //dans les lignes je rajoute les colonnes
+
+ 		}
+ 		$("#vue").append(ligneencours);      //dans tbody je rajoute les lignes
+ 	}
+
+}
 
 	
 
+var mesResultat = tableauAleatoire(10,7);
+afficheTableau(mesResultat);
