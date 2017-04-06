@@ -68,5 +68,20 @@ function chaineAleatoire(a) {
 
 	
 
-var mesResultat = tableauAleatoire(10,7);
-afficheTableau(mesResultat);
+
+function afficherBoutonsth(tab){
+	$("#th").html("");
+	var ligneencours = $("<tr></tr>");  //création variable pour intégrer des lignes
+	for (var i =0; i<tab[0].length; i++){
+		var colonneencours = $("<td></td>");  //création variable pour intégrer des colonnes
+		var radioButton = $('<input type="radio" name="hor" class="xx"/>');  //variable pour créer l'input des boutons radios
+		radioButton.data("x",i);  // data permet l'enregistrement des radios boutons
+		colonneencours.append(radioButton);  //je rajoute Radiobouton dans colonne en concours
+		ligneencours.append(colonneencours);  // je rajoute colonne en cours dans ligneen cours
+	}
+	$("#th").append(ligneencours);  // dans le tableau head je rajoute ligne en cours
+}
+
+
+var mesResultat = tableauAleatoire(10,3);
+afficherBoutonsth(mesResultat);
