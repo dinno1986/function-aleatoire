@@ -53,7 +53,14 @@ function chaineAleatoire(a) {
  	// console.log(larg);
 
  	for (var i=0; i<tab.length; i++){  
- 		var ligneencours = $("<tr></tr>"); //création variable pour intégrer des lignes
+ 		var ligneencours = $("<tr></tr>");
+ 		 //création variable pour intégrer des lignes
+ 		var premierecol = $("<td></td>");   // variable pour intégrer les colonnes
+		var radioButton = $('<input type="radio" name="verti" class="yy"/>'); //variable  pour crée l'input des boutons
+		radioButton.data("y",i); // enregistrer les boutons
+		premierecol.append(radioButton);  // je mets radioButton dans premiere col
+		ligneencours.append(premierecol); // je mets premiere col dans ligne en cours
+
  		$("#vue").append(ligneencours)     //dans tbody je rajoute les lignes
  		for (var j=0; j<tab[i].length; j++){
  			var colonneencours = $("<td></td>");  // création variable pour intégrer des colonnes
@@ -72,6 +79,7 @@ function chaineAleatoire(a) {
 function afficherBoutonsth(tab){
 	$("#th").html("");
 	var ligneencours = $("<tr></tr>");  //création variable pour intégrer des lignes
+	ligneencours.append($("<td></td>"));  // je rajoute une colonne vide car les boutons étaient décalé des colonnes
 	for (var i =0; i<tab[0].length; i++){
 		var colonneencours = $("<td></td>");  //création variable pour intégrer des colonnes
 		var radioButton = $('<input type="radio" name="hor" class="xx"/>');  //variable pour créer l'input des boutons radios
@@ -84,4 +92,5 @@ function afficherBoutonsth(tab){
 
 
 var mesResultat = tableauAleatoire(10,3);
+afficheTableau(mesResultat);
 afficherBoutonsth(mesResultat);
